@@ -1,0 +1,46 @@
+name: Terraform Plan and Apply
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    name: Terraform Apply
+    runs-on: ubuntu-latest
+    environment: practice_dev
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.5.7
+
+    - name: Terraform Init
+      env:
+        ARM_SUBSCRIPTION_ID: ${{ secrets.subscription_id }}
+        ARM_CLIENT_ID:       ${{ secrets.client_id }}
+        ARM_CLIENT_SECRET:   ${{ secrets.client_secret }}
+        ARM_TENANT_ID:       ${{ secrets.tenant_id }}
+      run: terraform init
+
+    - name: Terraform Plan
+      env:
+        ARM_SUBSCRIPTION_ID: ${{ secrets.subscription_id }}
+        ARM_CLIENT_ID:       ${{ secrets.client_id }}
+        ARM_CLIENT_SECRET:   ${{ secrets.client_secret }}
+        ARM_TENANT_ID:       ${{ secrets.tenant_id }}
+      run: terraform plan
+
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/main'
+      env:
+        ARM_SUBSCRIPTION_ID: ${{ secrets.subscription_id }}
+        ARM_CLIENT_ID:       ${{ secrets.client_id }}
+        ARM_CLIENT_SECRET:   ${{ secrets.client_secret }}
+        ARM_TENANT_ID:       ${{ secrets.tenant_id }}
+      run: terraform apply -auto-approve
