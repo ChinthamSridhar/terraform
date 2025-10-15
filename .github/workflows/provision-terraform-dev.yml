@@ -44,7 +44,7 @@ jobs:
           ARM_CLIENT_SECRET: ${{ secrets.client_secret }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.subscription_id }}
           ARM_TENANT_ID: ${{ secrets.tenant_id }}
-        run: terraform plan
+        run: terraform plan -input=false
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
