@@ -28,3 +28,8 @@ variable "saname"{
     type = string
     default = "sapractice1dev"
 }
+
+variable "name"{
+    type = string
+    default = "sapractice1dev"
+}
