@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "storage" {
-  name                     = "sapracticedev" # must be globally unique
+  name                     = "sapractice1dev" # must be globally unique
   resource_group_name      = var.resource_group_name
   location                 = var.location
   account_tier             = "Standard"
