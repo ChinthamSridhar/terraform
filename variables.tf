@@ -11,5 +11,5 @@ variable "location"{
 
 variable "name"{
     type = string
-    default = "sapractice1dev"
+    default = "sapractice2dev"
 }
