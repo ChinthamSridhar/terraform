@@ -25,3 +25,4 @@ resource "azurerm_key_vault" "keyvault" {
       azurerm_subnet.practicesubnet.id
     ]
 }
+}
