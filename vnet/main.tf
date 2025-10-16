@@ -14,4 +14,12 @@ resource "azurerm_subnet" "practicesubnet" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.practicevnet.name
   address_prefixes     = ["10.10.1.0/24"]
+
+}
+
+resource "azurerm_subnet" "akssubnet" {
+  name                 = var.akssubnetname
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.practicevnet.name
+  address_prefixes     = ["10.10.2.0/24"]
 }

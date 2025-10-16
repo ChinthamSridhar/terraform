@@ -9,7 +9,3 @@ variable "location"{
     default = "East US"
 }
 
-variable "name"{
-    type = string
-    default = "sapractice2dev"
-}
