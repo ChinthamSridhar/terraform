@@ -11,5 +11,5 @@ variable "location"{
 
 variable "name"{
     type = string
-    default = "acr-practice-dev"
+    default = "acrpracticedev"
 }
