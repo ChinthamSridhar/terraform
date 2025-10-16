@@ -5,7 +5,7 @@ resource "azurerm_virtual_network" "practicevnet" {
   resource_group_name       = var.resource_group_name
 
     tags = {
-    environment = dev
+    environment = "dev"
   }
 }
 
