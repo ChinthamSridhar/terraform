@@ -1,20 +1,4 @@
 
-variable "client_id"{
-    type = string
-}
-
-variable "tenant_id"{
-    type = string
-}
-
-variable "client_secret"{
-    type = string
-}
-
-variable "subscription_id"{
-    type = string
-}
-
 variable "resource_group_name"{
     type = string
     default = "rg-practice-dev"
@@ -25,7 +9,7 @@ variable "location"{
     default = "East US"
 }
 
-variable "saname"{
+variable "name"{
     type = string
     default = "sapractice1dev"
 }
