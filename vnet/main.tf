@@ -12,6 +12,6 @@ resource "azurerm_virtual_network" "practicevnet" {
 resource "azurerm_subnet" "practicesubnet" {
   name                 = var.subnetname
   resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.medpearlvnet.name
+  virtual_network_name = azurerm_virtual_network.practicevnet.name
   address_prefixes     = ["10.10.1.0/24"]
 }
