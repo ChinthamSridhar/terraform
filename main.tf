@@ -9,3 +9,9 @@ module "vnet" {
   resource_group_name      = var.resource_group_name
   location                 = var.location
 }
+
+module "keyvault" {
+  source                   = "./keyvault"
+  resource_group_name      = var.resource_group_name
+  location                 = var.location
+}
