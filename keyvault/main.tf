@@ -31,6 +31,11 @@ data "azurerm_subnet" "kvsubnet" {
   resource_group_name  = var.resource_group_name
 }
 
+data "azurerm_virtual_network" "vnet" {
+  name                 = "vnet-practice-dev"
+  resource_group_name  = var.resource_group_name
+}
+
 resource "azurerm_private_endpoint" "kv_pe" {
   name                = "kv-private-endpoint"
   location            = var.location
@@ -43,5 +48,17 @@ resource "azurerm_private_endpoint" "kv_pe" {
     subresource_names              = ["vault"]
     is_manual_connection           = false
   }
+}
+resource "azurerm_private_dns_zone" "kv_dns" {
+  name                = "privatelink.vaultcore.azure.net"
+  resource_group_name = var.resource_group_name
+}
+
+resource "azurerm_private_dns_zone_virtual_network_link" "vnet_link" {
+  name                  = "kv-dns-vnet-link"
+  resource_group_name   = var.resource_group_name
+  private_dns_zone_name = azurerm_private_dns_zone.kv_dns.name
+  virtual_network_id    = data.azurerm_virtual_network.vnet.id
+  registration_enabled  = false
 }
 
