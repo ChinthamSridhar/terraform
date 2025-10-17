@@ -8,6 +8,7 @@ resource "azurerm_key_vault" "keyvault" {
   tenant_id                   = data.azurerm_client_config.current.tenant_id
   sku_name                    = "standard"
   purge_protection_enabled    = true
+  public_network_access_enabled = false
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
