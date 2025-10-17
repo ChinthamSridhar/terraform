@@ -19,10 +19,5 @@ resource "azurerm_key_vault" "keyvault" {
   network_acls {
     default_action             = "Deny"                      # Deny by default
     bypass                     = "AzureServices"             # Optional: Allow trusted services
-
-    # ✅ Allow access from AKS subnet
-    virtual_network_subnet_ids = [
-      azurerm_subnet.practicesubnet.id
-    ]
 }
 }
