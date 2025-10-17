@@ -19,7 +19,7 @@ resource "azurerm_key_vault" "keyvault" {
   # 🔐 Network Rules
   network_acls {
     default_action             = "Deny"                      # Deny by default
-    bypass                     = "None"             # Optional: Allow trusted services
+    bypass                     = "AzureServices"             # Optional: Allow trusted services
 }
   tags = {
     environment = "dev"
