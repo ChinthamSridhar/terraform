@@ -9,8 +9,8 @@ resource "azurerm_virtual_network" "practicevnet" {
   }
 }
 
-resource "azurerm_subnet" "practicesubnet" {
-  name                 = var.subnetname
+resource "azurerm_subnet" "kvsubnet" {
+  name                 = var.kvsubnetname
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.practicevnet.name
   address_prefixes     = ["10.10.1.0/24"]

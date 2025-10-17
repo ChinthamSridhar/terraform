@@ -13,9 +13,9 @@ variable "location"{
     default = "East US"
 }
 
-variable "subnetname"{
+variable "kvsubnetname"{
     type = string
-    default = "subnet-practice-dev"
+    default = "kvsubnet-practice-dev"
 }
 
 
