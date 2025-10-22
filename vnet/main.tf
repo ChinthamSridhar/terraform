@@ -23,3 +23,10 @@ resource "azurerm_subnet" "akssubnet" {
   virtual_network_name = azurerm_virtual_network.practicevnet.name
   address_prefixes     = ["10.10.2.0/24"]
 }
+
+resource "azurerm_subnet" "sasubnet" {
+  name                 = var.sasubnetname
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.practicevnet.name
+  address_prefixes     = ["10.10.3.0/24"]
+}
