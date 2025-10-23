@@ -4,11 +4,11 @@ resource "azurerm_storage_account" "storage" {
   location                 = var.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  public_network_access_enabled = false
 
   network_rules {
   default_action             = "Deny"
   bypass                     = ["AzureServices"]
-  virtual_network_subnet_ids = [data.azurerm_subnet.sasubnet.id]
 }
 
   tags = {
