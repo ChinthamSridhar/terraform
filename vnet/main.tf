@@ -31,3 +31,10 @@ resource "azurerm_subnet" "sasubnet" {
   address_prefixes     = ["10.10.3.0/24"]
   service_endpoints    = ["Microsoft.Storage"]
 }
+
+resource "azurerm_subnet" "acrsubnet" {
+  name                 = var.acrsubnetname
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.practicevnet.name
+  address_prefixes     = ["10.10.4.0/24"]
+}

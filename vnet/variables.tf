@@ -28,3 +28,8 @@ variable "sasubnetname"{
     type = string
     default = "sasubnet-practice-dev"
 }
+
+variable "acrsubnetname"{
+    type = string
+    default = "acrsubnet-practice-dev"
+}
