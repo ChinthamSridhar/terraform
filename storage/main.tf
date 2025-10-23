@@ -41,7 +41,7 @@ resource "azurerm_private_endpoint" "sa_pe" {
   }
 }
 resource "azurerm_private_dns_zone" "sa_dns" {
-  name                = "privatelink.vaultcore.azure.net"
+  name                = "privatelink.blob.core.windows.net"
   resource_group_name = var.resource_group_name
 }
 
