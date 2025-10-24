@@ -7,7 +7,8 @@ resource "azurerm_storage_account" "storage" {
   public_network_access_enabled = false
 
   network_rules {
-  default_action = "Allow"
+    default_action             = "Deny"                      # Deny by default
+    bypass                     = "AzureServices"
 }
 
   tags = {
