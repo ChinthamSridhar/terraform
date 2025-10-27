@@ -22,6 +22,16 @@ resource "azurerm_subnet" "akssubnet" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.practicevnet.name
   address_prefixes     = ["10.10.2.0/24"]
+    # Required for AKS subnet
+  delegation {
+    name = "aks_delegation"
+    service_delegation {
+      name = "Microsoft.ContainerService/managedClusters"
+      actions = [
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+      ]
+    }
+  }
 }
 
 resource "azurerm_subnet" "sasubnet" {
