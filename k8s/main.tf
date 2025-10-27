@@ -21,7 +21,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   resource_group_name = var.resource_group_name
   dns_prefix          = "practiceaks"
 
-  kubernetes_version  = "1.30.0" # adjust if newer available
+  kubernetes_version  = "1.29.5" # adjust if newer available
 
   default_node_pool {
     name                = "systempool"
