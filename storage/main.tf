@@ -7,18 +7,13 @@ resource "azurerm_storage_account" "storage" {
   public_network_access_enabled = false
 
   network_rules {
-    default_action             = "Deny"                      # Deny by default
+    default_action             = "Deny"    
+    bypass                     = "AzureServices"                  # Deny by default
 }
 
   tags = {
     environment = "dev"
   }
-}
-
-resource "azurerm_storage_container" "container" {
-  name                  = "practicestate"
-  storage_account_name  = azurerm_storage_account.storage.name
-  container_access_type = "private"
 }
 
 data "azurerm_subnet" "sasubnet" {
