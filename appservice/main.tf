@@ -6,7 +6,7 @@ resource "azurerm_service_plan" "appserviceplan" {
   sku_name            = "P1v2"
 
  tags = {
-    environment = dev
+    environment = "dev"
   }
 }
 
@@ -21,6 +21,6 @@ resource "azurerm_linux_web_app" "webapp" {
   }
 
     tags = {
-    environment = dev
+    environment = "dev"
   }
 }
