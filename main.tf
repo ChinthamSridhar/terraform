@@ -27,3 +27,9 @@ module "k8s"{
   resource_group_name      = var.resource_group_name
   location                 = var.location
 }
+
+module "appservice" {
+  source                   = "./appservice"
+  resource_group_name      = var.resource_group_name
+  location                 = var.location
+}
